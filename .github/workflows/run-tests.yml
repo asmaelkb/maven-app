@@ -32,7 +32,5 @@ jobs:
       - name: Display test results
         uses: ctrf-io/github-test-reporter@v1
         with:
-          report-path: |
-            'target/failsafe-reports/TEST-*.xml'
-            'target/surefire-reports/TEST-*.xml'
+          report-path: 'target/surefire-reports/TEST-*.xml'
           failed-report: true
