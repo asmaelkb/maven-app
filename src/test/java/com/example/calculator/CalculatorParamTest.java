@@ -19,6 +19,7 @@ class CalculatorParamTest {
     })
     void add_parameterized(int a, int b, int expected) {
         assertEquals(expected, calc.add(a, b));
+        assertTrue(false);
     }
 
     @ParameterizedTest(name = "multiply({0}, {1}) = {2}")
