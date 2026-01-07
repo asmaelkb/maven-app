@@ -46,7 +46,6 @@ jobs:
         with:
           report_paths: 'target/surefire-reports/TEST-*.xml'
           include_passed: false
-          summary: true
 
       - name: Display IT tests results
         uses: mikepenz/action-junit-report@v5
@@ -54,4 +53,3 @@ jobs:
         with:
           report_paths: 'target/failsafe-reports/TEST-*.xml'
           include_passed: false
-          summary: true
