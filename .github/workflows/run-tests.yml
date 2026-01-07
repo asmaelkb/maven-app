@@ -28,6 +28,12 @@ jobs:
         run: |
           mvn -B -q verify
           mvn -B -q -DskipITs test
+        
+      - name: Test 
+        shell: bash 
+        run: |
+          ls target/surefire-reports
+          ls target/failsafe-reports
       
       - name: Display units tests results
         uses: mikepenz/action-junit-report@v5
