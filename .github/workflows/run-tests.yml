@@ -26,8 +26,8 @@ jobs:
       - name: Execute tests
         shell: bash
         run: |
-          mvn -B -q verify
-          mvn -B -q -DskipITs test
+          mvn -B verify
+          mvn -B -DskipITs test
         
       - name: Test 
         shell: bash 
