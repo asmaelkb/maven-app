@@ -34,12 +34,17 @@ jobs:
           mvn -B verify
           mvn -B -DskipITs test
       
+      - name: Display directory
+        shell: bash 
+        run: |
+          ls target/surefire-reports
+          ls target/failsafe-reports
+
       - name: Display units tests results
         uses: mikepenz/action-junit-report@v5
         if: success() || failure() # always run even if the previous step fails
         with:
-          report_paths: |
-            'target/surefire-reports/TEST-*.xml'
+          report_paths: 'target/surefire-reports/TEST-*.xml'
           include_passed: false
           summary: true
 
@@ -47,7 +52,6 @@ jobs:
         uses: mikepenz/action-junit-report@v5
         if: success() || failure() # always run even if the previous step fails
         with:
-          report_paths: |
-            'target/failsafe-reports/TEST-*.xml'
+          report_paths: 'target/failsafe-reports/TEST-*.xml'
           include_passed: false
           summary: true
