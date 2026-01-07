@@ -7,6 +7,11 @@ on:
       - main
   workflow_dispatch:
 
+permissions:
+  contents: read
+  checks: write
+  id-token: write
+
 jobs:
   tests:
     name: Execute tests & display results
@@ -28,12 +33,6 @@ jobs:
         run: |
           mvn -B verify
           mvn -B -DskipITs test
-        
-      - name: Test 
-        shell: bash 
-        run: |
-          ls target/surefire-reports
-          ls target/failsafe-reports
       
       - name: Display units tests results
         uses: mikepenz/action-junit-report@v5
@@ -43,8 +42,6 @@ jobs:
             'target/surefire-reports/TEST-*.xml'
           include_passed: false
           summary: true
-          skip_annotations: true
-          check_annotations: false
 
       - name: Display IT tests results
         uses: mikepenz/action-junit-report@v5
@@ -54,5 +51,3 @@ jobs:
             'target/failsafe-reports/TEST-*.xml'
           include_passed: false
           summary: true
-          skip_annotations: true
-          check_annotations: false
