@@ -1,0 +1,36 @@
+# Workflow that executes the tests & display the results properly
+name: Reusable Run Tests
+
+on:
+  workflow_dispatch:
+
+
+jobs:
+  tests:
+    name: Execute tests & display results
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 #v4.2.2
+
+      - name: Set up JDK
+        uses: actions/setup-java@387ac29b308b003ca37ba93a6cab5eb57c8f5f93 #v4.0.0
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: 'maven'
+
+      - name: Execute tests
+        shell: bash
+        run: |
+          mvn -B -q verify
+          mvn -B -q -DskipITs test
+      
+      - name: Display test results
+        uses: ctrf-io/github-test-reporter@v1
+        with:
+          report-path: |
+            'maven-calculator/target/failsafe-reports/TEST-*.xml'
+            'maven-calculator/target/surefire-reports/TEST-*.xml'
+          failed-report: true
