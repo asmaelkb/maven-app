@@ -30,6 +30,10 @@ jobs:
           mvn -B -q -DskipITs test
       
       - name: Display test results
-        uses: scacap/action-surefire-report@v1
+        uses: mikepenz/action-junit-report@v5
+        if: success() || failure() # always run even if the previous step fails
         with:
-          skip_publishing: true
+          report_paths: 'target/surefire-reports/TEST-*.xml'
+          include_passed: false
+          include_skipped: false
+          summary: true
