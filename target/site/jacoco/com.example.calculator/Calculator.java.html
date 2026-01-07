@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Calculator.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">maven-calculator</a> &gt; <a href="index.source.html" class="el_package">com.example.calculator</a> &gt; <span class="el_source">Calculator.java</span></div><h1>Calculator.java</h1><pre class="source lang-java linenums">
+package com.example.calculator;
+
+<span class="fc" id="L4">public class Calculator {</span>
+
+    public int add(int a, int b) {
+<span class="fc" id="L7">        return a + b;</span>
+    }
+
+    public int subtract(int a, int b) {
+<span class="fc" id="L11">        return a - b;</span>
+    }
+
+    public int multiply(int a, int b) {
+<span class="fc" id="L15">        return a * b;</span>
+    }
+
+    public double divide(double a, double b) {
+<span class="fc bfc" id="L19" title="All 2 branches covered.">        if (b == 0.0) {</span>
+<span class="fc" id="L20">            throw new ArithmeticException(&quot;Division by zero&quot;);</span>
+        }
+<span class="fc" id="L22">        return a / b;</span>
+    }
+
+    public long factorial(int n) {
+<span class="fc bfc" id="L26" title="All 2 branches covered.">        if (n &lt; 0) {</span>
+<span class="fc" id="L27">            throw new IllegalArgumentException(&quot;Negative factorial not allowed&quot;);</span>
+        }
+<span class="fc" id="L29">        long result = 1;</span>
+<span class="fc bfc" id="L30" title="All 2 branches covered.">        for (int i = 2; i &lt;= n; i++) {</span>
+<span class="fc" id="L31">            result *= i;</span>
+        }
+<span class="fc" id="L33">        return result;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

@@ -1,0 +1,6 @@
+/workspaces/maven-app/maven-calculator/src/test/java/com/example/calculator/AllTestsSuite.java
+/workspaces/maven-app/maven-calculator/src/test/java/com/example/calculator/CalculatorEdgeCasesTest.java
+/workspaces/maven-app/maven-calculator/src/test/java/com/example/calculator/CalculatorIT.java
+/workspaces/maven-app/maven-calculator/src/test/java/com/example/calculator/CalculatorParamTest.java
+/workspaces/maven-app/maven-calculator/src/test/java/com/example/calculator/CalculatorTest.java
+/workspaces/maven-app/maven-calculator/src/test/java/com/example/calculator/MathUtilsTest.java

@@ -1,0 +1,6 @@
+com/example/calculator/AllTestsSuite.class
+com/example/calculator/MathUtilsTest.class
+com/example/calculator/CalculatorParamTest.class
+com/example/calculator/CalculatorIT.class
+com/example/calculator/CalculatorEdgeCasesTest.class
+com/example/calculator/CalculatorTest.class
