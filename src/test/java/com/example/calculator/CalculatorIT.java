@@ -15,6 +15,5 @@ class CalculatorIT {
         Calculator c = new Calculator();
         double result = c.divide(c.add(10, 5), c.multiply(2, 3)); // (10+5)/(2*3) = 15/6 = 2.5
         assertEquals(2.5, result, 1e-9);
-        assertTrue(false);
     }
 }
