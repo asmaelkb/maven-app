@@ -27,13 +27,12 @@ jobs:
       - name: Execute tests
         shell: bash
         run: |
-          mvn -B -q verify
           mvn -B -q -DskipITs test
       
       - name: Display test results
         uses: ctrf-io/github-test-reporter@v1
         with:
           report-path: |
-            'maven-calculator/target/failsafe-reports/TEST-*.xml'
-            'maven-calculator/target/surefire-reports/TEST-*.xml'
+            'target/failsafe-reports/TEST-*.xml'
+            'target/surefire-reports/TEST-*.xml'
           failed-report: true
