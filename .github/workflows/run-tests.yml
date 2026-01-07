@@ -7,11 +7,6 @@ on:
       - main
   workflow_dispatch:
 
-permissions:
-  contents: read
-  checks: write
-  id-token: write
-
 jobs:
   tests:
     name: Execute tests & display results
@@ -42,6 +37,8 @@ jobs:
             'target/surefire-reports/TEST-*.xml'
           include_passed: false
           summary: true
+          skip_annotations: true
+          check_annotations: false
 
       - name: Display IT tests results
         uses: mikepenz/action-junit-report@v5
@@ -51,3 +48,5 @@ jobs:
             'target/failsafe-reports/TEST-*.xml'
           include_passed: false
           summary: true
+          skip_annotations: true
+          check_annotations: false
