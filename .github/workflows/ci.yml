@@ -6,7 +6,7 @@ on:
       deploy-snapshot:
         description: Deploy Snapshot
         type: boolean
-        required: true
+        required: false
 
 jobs:
   display:
