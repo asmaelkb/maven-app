@@ -1,0 +1,19 @@
+name: Test boolean inputs
+
+on:
+  workflow_dispatch:
+    inputs:
+      deploy-snapshot:
+        description: Deploy Snapshot
+        type: boolean
+        required: true
+
+jobs:
+  display:
+    runs-on: ubuntu-latest
+
+    steps:
+      name: Display "Deploy Snapshot" input
+      shell: bash
+      run: |
+        echo "Deploy Snapshot : ${{ inputs.deploy-snapshot }}"
