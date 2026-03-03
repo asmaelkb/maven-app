@@ -7,15 +7,16 @@ on:
       - main
   workflow_dispatch:
 
-permissions:
-  contents: read
-  checks: write
-  id-token: write
 
 jobs:
   tests:
     name: Execute tests & display results
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      checks: write
+      id-token: write
 
     steps:
       - name: Checkout
