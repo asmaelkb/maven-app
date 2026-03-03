@@ -47,4 +47,6 @@ jobs:
         with:
           report_paths: 'target/surefire-reports/TEST-*.xml'
           include_passed: false
-          annotations_limit: 2000
+          comment: true
+          detailed_summary: true
+          job_summary: true
