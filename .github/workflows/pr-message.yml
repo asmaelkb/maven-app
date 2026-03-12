@@ -14,7 +14,7 @@ jobs:
         script: |
           const repo = context.repo.repo;
           const owner = context.repo.owner;
-          const issue_number = ${{ inputs.pr-number }};
+          const issue_number = ${{ github.event.pull_request.number }};
           
           if (!issue_number) {
             core.setFailed('Missing issue number. This value must be provided with the parameter pr-number when used by a workflow without a pull_request context');
@@ -63,6 +63,7 @@ jobs:
               body: message,
             });
           }
+
     - uses: actions/github-script@v8 #v7.0.1
       with:
         script: |
