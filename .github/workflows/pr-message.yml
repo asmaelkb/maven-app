@@ -8,18 +8,18 @@ jobs:
   write-pr-message:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea #v7.0.1
+    - uses: actions/github-script@v8 #v7.0.1
       with:
         script: |
           const repo = context.repo.repo;
           const owner = context.repo.owner;
-          const issue_number = ${{ inputs.pr-number }};
+          const issue_number = ${{ github.event.pull_request.number }};
           
           if (!issue_number) {
             core.setFailed('Missing issue number. This value must be provided with the parameter pr-number when used by a workflow without a pull_request context');
           }
 
-          const messagePrefix = "🚀 This pull request has been deployed to: "
+          const messagePrefix = "AWS - This pull request has been deployed to: "
           const message = messagePrefix + "https://swbengine-application-api-alz.schneider-electric.com/switchboard-editor-api/swagger-ui/index.html";
 
           const wasDeployed = "${{ inputs.url }}".startsWith("https");
@@ -62,18 +62,19 @@ jobs:
               body: message,
             });
           }
-    - uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea #v7.0.1
+
+    - uses: actions/github-script@v8 #v7.0.1
       with:
         script: |
           const repo = context.repo.repo;
           const owner = context.repo.owner;
-          const issue_number = ${{ inputs.pr-number }};
+          const issue_number = ${{ github.event.pull_request.number }};
           
           if (!issue_number) {
             core.setFailed('Missing issue number. This value must be provided with the parameter pr-number when used by a workflow without a pull_request context');
           }
 
-          const messagePrefix = "🚀 This pull request has been deployed to: "
+          const messagePrefix = "ALZ - This pull request has been deployed to: "
           const message = messagePrefix + "https://swbengine-application-api-alz.schneider-electric.com/switchboard-engine-api/swagger-ui/index.html";
 
           const wasDeployed = "${{ inputs.url }}".startsWith("https");
