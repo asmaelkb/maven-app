@@ -1,5 +1,4 @@
 name: Write 2 messages in PR
-#works?
 
 on:
   pull_request:
@@ -20,7 +19,7 @@ jobs:
             core.setFailed('Missing issue number. This value must be provided with the parameter pr-number when used by a workflow without a pull_request context');
           }
 
-          const messagePrefix = "🚀 This pull request has been deployed to: "
+          const messagePrefix = "AWS - This pull request has been deployed to: "
           const message = messagePrefix + "https://swbengine-application-api-alz.schneider-electric.com/switchboard-editor-api/swagger-ui/index.html";
 
           const wasDeployed = "${{ inputs.url }}".startsWith("https");
@@ -75,7 +74,7 @@ jobs:
             core.setFailed('Missing issue number. This value must be provided with the parameter pr-number when used by a workflow without a pull_request context');
           }
 
-          const messagePrefix = "🚀 This pull request has been deployed to: "
+          const messagePrefix = "ALZ - This pull request has been deployed to: "
           const message = messagePrefix + "https://swbengine-application-api-alz.schneider-electric.com/switchboard-engine-api/swagger-ui/index.html";
 
           const wasDeployed = "${{ inputs.url }}".startsWith("https");
