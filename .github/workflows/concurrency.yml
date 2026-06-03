@@ -1,5 +1,5 @@
 name: Concurrency PR 
-# jsuis bete
+# et là c'est cancelled?
 on:
   pull_request:
     types: [ opened, synchronize, reopened, closed ]
