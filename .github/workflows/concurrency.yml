@@ -1,5 +1,5 @@
 name: Concurrency PR 
-# pending
+# pending PR
 on:
   pull_request:
     types: [ opened, synchronize, reopened, closed ]
