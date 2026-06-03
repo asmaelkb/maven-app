@@ -21,6 +21,10 @@ jobs:
         - name: Second step
           shell: bash
           run: echo "Second step"
+        
+        - name: Third sleep
+          shell: bash
+          run: sleep 60
     
     undeploy:
       name: Clean
