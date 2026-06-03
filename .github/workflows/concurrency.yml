@@ -1,0 +1,33 @@
+name: Concurrency PR 
+
+on:
+  pull_request:
+    types: [open, synchronized, closed]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs: 
+    deploy:
+      name: Deploy
+      runs-on: ubuntu-latest
+
+      steps:
+        - name: First step
+          shell: bash
+          run: echo "First step"
+
+        - name: Second step
+          shell: bash
+          run: echo "Second step"
+    
+    undeploy:
+      name: Clean
+      if: github.event.action == 'closed' || cancelled()
+      runs-on: ubuntu-latest
+
+      steps:
+        - name: First step
+          shell: bash
+          run: echo "Even if another PR is created, and that this one is cancelled, this step still runs."
